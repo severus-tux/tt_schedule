@@ -17,13 +17,15 @@ SOURCES += main.cpp\
     choose_view.cpp \
     input.cpp \
     tt_database.cpp \
-    tt_table_view.cpp
+    tt_table_view.cpp \
+    schedule.cpp
 
 HEADERS  += tt_main_window.h \
     choose_view.h \
     input.h \
     tt_database.h \
-    tt_table_view.h
+    tt_table_view.h \
+    schedule.h
 
 FORMS    += tt_main_window.ui \
     choose_view.ui \

@@ -49,6 +49,9 @@ void tt_database::tt_create_new_db()
                " foreign key(tid1) references teacher_info(tid),"
                " foreign key(tid2) references teacher_info(tid))");
     query.exec();
+
+    //Creating all required views :
+
     query.prepare("create view master_class as "
                   "select m.day,m.sem,m.sec, "
                   "COALESCE(m.sem, '') || '-' || COALESCE(m.sec, '') as class, "
@@ -65,6 +68,27 @@ void tt_database::tt_create_new_db()
                   ") as day_num "
                   "from master m, subject s "
                   "where m.sub_id=s.sub_id;) ");
+    query.exec();
+    query.prepare("create view master_lab as "
+                  "select l.day,l.sem,l.sec,l.lab_name,l.tid1,l.tid2,l.batch, "
+                  "COALESCE (l.sem,'') || COALESCE (l.sec,'') || '-' || COALESCE (l.batch,'') as class, "
+                  "m.hour, "
+                  "( "
+                  "case "
+                  "    when day='MON' then 1 "
+                  "    when day='TUE' then 2 "
+                  "    when day='WED' then 3 "
+                  "    when day='THU' then 4 "
+                  "    when day='FRI' then 5 "
+                  "    when day='SAT' then 6 "
+                  "end "
+                  ") as day_num "
+                  "from master m , lab l "
+                  "where "
+                  "m.day=l.day and "
+                  "m.sem=l.sem and "
+                  "m.sec=l.sec and "
+                  "m.sub_id=l.sub_id;");
     query.exec();
     connClose();
 }

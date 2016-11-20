@@ -3,12 +3,9 @@
 
 #include <QDialog>
 #include <tt_database.h>
-//#include <QtPrintSupport/QPrintDialog>
-//#include <QtPrintSupport/QPrinter>
-//#include <QTextDocument>
-//#include <QString>
-//#include <QtCore>
-//#include <QtGui>
+#include <choose_view.h>
+
+class choose_view; // Forward Diclaration of class choose_view for implementation of Back button.
 
 namespace Ui {
 class tt_table_view;
@@ -23,6 +20,7 @@ public:
     ~tt_table_view();
     void loadtable(int,QString);
     tt_database conn;
+    choose_view *ch_view;
 
 private slots:
 

@@ -5,6 +5,8 @@
 #include "tt_database.h"
 #include "tt_table_view.h"
 
+class tt_table_view; // Forward Declaration
+
 namespace Ui {
 class choose_view;
 }

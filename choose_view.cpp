@@ -1,7 +1,7 @@
 #include "choose_view.h"
 #include "ui_choose_view.h"
-#include <QMessageBox>
 #include "tt_table_view.h"
+#include <QMessageBox>
 
 choose_view::choose_view(QWidget *parent) :
     QDialog(parent),
@@ -23,22 +23,31 @@ void choose_view::on_buttonBox_rejected()
 
 void choose_view::on_buttonBox_accepted()
 {
+
     if(ui->radioButton_view_master->isChecked())
     {
-        QMessageBox::information(this,"Master","Master");
+        hide();
+        tab_view = new tt_table_view();
+        tab_view->show();
+        tab_view->loadtable(1,"");
     }
     else if(ui->radioButton_view_lab->isChecked())
     {
-        QMessageBox::information(this,"Lab","Lab");
+        hide();
+        tab_view = new tt_table_view();
+        tab_view->show();
+        tab_view->loadtable(2,ui->comboBox_lab->currentText());
     }
     else if(ui->radioButton_view_class->isChecked())
     {
+        hide();
         tab_view = new tt_table_view();
         tab_view->show();
         tab_view->loadtable(3,ui->comboBox_class->currentText());
     }
     else if(ui->radioButton_view_teacher->isChecked())
     {
+        hide();
         tab_view = new tt_table_view();
         tab_view->show();
         tab_view->loadtable(4,ui->comboBox_teacher->currentText());
