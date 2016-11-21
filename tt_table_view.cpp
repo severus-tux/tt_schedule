@@ -20,6 +20,7 @@ void tt_table_view::on_pushButton_exit_clicked()
 
 void tt_table_view::loadtable(int table_no, QString condition="")
 {
+    int count_rows=0;
     QSqlQueryModel *modal = new QSqlQueryModel();
     conn.connOpen();
     QSqlQuery *qry = new QSqlQuery(conn.db);
@@ -41,6 +42,10 @@ void tt_table_view::loadtable(int table_no, QString condition="")
                          "order by day_num; "
                          );
             qry->exec();
+
+            while(qry->next())
+                count_rows++;
+            resize(950,count_rows*39);
             modal->setQuery(*qry);
             tt_table_view::ui->tableView->setModel(modal);
             ui->table_title->setText("Master Timetable");
@@ -62,6 +67,10 @@ void tt_table_view::loadtable(int table_no, QString condition="")
                          "order by day_num;"
                          );
             qry->exec();
+
+            while(qry->next())
+                count_rows++;
+            resize(850,count_rows*39);
             modal->setQuery(*qry);
             tt_table_view::ui->tableView->setModel(modal);
             ui->table_title->setText("LAB timetable : "+condition+" ");
@@ -83,6 +92,9 @@ void tt_table_view::loadtable(int table_no, QString condition="")
                          "order by day_num;"
                          );
             qry->exec();
+            while(qry->next())
+                count_rows++;
+            resize(860,count_rows*50);
             modal->setQuery(*qry);
             tt_table_view::ui->tableView->setModel(modal);
             ui->table_title->setText("Class timetable : "+condition+" ");
@@ -106,6 +118,9 @@ void tt_table_view::loadtable(int table_no, QString condition="")
                          "order by day_num;"
                          );
             qry->exec();
+            while(qry->next())
+                count_rows++;
+            resize(850,count_rows*56);
             modal->setQuery(*qry);
             tt_table_view::ui->tableView->setModel(modal);
             ui->table_title->setText("Teacher's Timetable : "+condition+" ");

@@ -56,6 +56,7 @@ void choose_view::on_buttonBox_accepted()
     {
         QMessageBox::critical(this,"No option selected","No options were selected!!.");
     }
+
 }
 
 void choose_view::on_radioButton_view_lab_clicked()
