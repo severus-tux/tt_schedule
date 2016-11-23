@@ -16,7 +16,7 @@ private:
 class teacher:public schedule
 {
 public:
-    teacher();
+    teacher();//gfjyfguyfuyfyufyu
 };
 
 class class_room:public schedule
