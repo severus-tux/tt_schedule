@@ -4,6 +4,8 @@
 #include <QDialog>
 #include <tt_database.h>
 #include <choose_view.h>
+#include <QHeaderView>
+#include <QDebug>
 
 class choose_view; // Forward Diclaration of class choose_view for implementation of Back button.
 

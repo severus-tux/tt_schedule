@@ -20,10 +20,10 @@ void tt_table_view::on_pushButton_exit_clicked()
 
 void tt_table_view::loadtable(int table_no, QString condition="")
 {
-    int count_rows=0;
     QSqlQueryModel *modal = new QSqlQueryModel();
     conn.connOpen();
     QSqlQuery *qry = new QSqlQuery(conn.db);
+    int height=0,width=0;
 
     switch (table_no)
     {
@@ -42,12 +42,23 @@ void tt_table_view::loadtable(int table_no, QString condition="")
                          "order by day_num; "
                          );
             qry->exec();
-
-            while(qry->next())
-                count_rows++;
-            resize(950,count_rows*39);
+            ui->tableView->setWordWrap(true);
             modal->setQuery(*qry);
             tt_table_view::ui->tableView->setModel(modal);
+            //Counting the Column Width
+            for (int i=0;i<ui->tableView->horizontalHeader()->count();i++)
+                width=width+ui->tableView->columnWidth(i);
+            //Counting the Row Height
+            for (int i=0;i<10;i++)
+                height=height+ui->tableView->rowHeight(i);
+            //Disable Resizing the horizontal and vertical headers by the user
+            ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+            ui->tableView->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+            setMinimumWidth(width+48);
+            setMaximumWidth(width+48);
+            //setMinimumHeight(height+109);
+            //setMaximumHeight(height+109);
+
             ui->table_title->setText("Master Timetable");
             ui->table_title->setStyleSheet("QLabel {  font-size:16px; font-weight: bold; color : blue; }");
         break;
@@ -67,12 +78,22 @@ void tt_table_view::loadtable(int table_no, QString condition="")
                          "order by day_num;"
                          );
             qry->exec();
-
-            while(qry->next())
-                count_rows++;
-            resize(850,count_rows*39);
+            ui->tableView->setWordWrap(true);
             modal->setQuery(*qry);
             tt_table_view::ui->tableView->setModel(modal);
+            //Counting the Column Width
+            for (int i=0;i<ui->tableView->horizontalHeader()->count();i++)
+                width=width+ui->tableView->columnWidth(i);
+            //Counting the Row Height
+            for (int i=0;i<ui->tableView->verticalHeader()->count();i++)
+                height=height+ui->tableView->rowHeight(i);
+            //Disable Resizing the horizontal and vertical headers by the user
+            ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+            ui->tableView->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+            setMinimumWidth(width+38);
+            setMaximumWidth(width+38);
+            setMinimumHeight(height+109);
+            setMaximumHeight(height+109);
             ui->table_title->setText("LAB timetable : "+condition+" ");
             ui->table_title->setStyleSheet("QLabel {  font-size:16px; font-weight: bold; color : blue; }");
         break;
@@ -92,11 +113,24 @@ void tt_table_view::loadtable(int table_no, QString condition="")
                          "order by day_num;"
                          );
             qry->exec();
-            while(qry->next())
-                count_rows++;
-            resize(860,count_rows*50);
+            ui->tableView->setWordWrap(true);
             modal->setQuery(*qry);
             tt_table_view::ui->tableView->setModel(modal);
+            //Counting the Column Width
+            for (int i=0;i<ui->tableView->horizontalHeader()->count();i++)
+                width=width+ui->tableView->columnWidth(i);
+            //Counting the Row Height
+            for (int i=0;i<ui->tableView->verticalHeader()->count();i++)
+                height=height+ui->tableView->rowHeight(i);
+            //Disable Resizing the horizontal and vertical headers by the user
+            ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+            ui->tableView->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+            setMinimumWidth(width+38);
+            setMaximumWidth(width+38);
+            setMinimumHeight(height+109);
+            setMaximumHeight(height+109);
+            qDebug() << ui->tableView->horizontalHeader()->height();
+            qDebug() << ui->tableView->verticalHeader()->width();
             ui->table_title->setText("Class timetable : "+condition+" ");
             ui->table_title->setStyleSheet("QLabel {  font-size:16px; font-weight: bold; color : blue; }");
         break;
@@ -118,11 +152,22 @@ void tt_table_view::loadtable(int table_no, QString condition="")
                          "order by day_num;"
                          );
             qry->exec();
-            while(qry->next())
-                count_rows++;
-            resize(850,count_rows*56);
+            ui->tableView->setWordWrap(true);
             modal->setQuery(*qry);
             tt_table_view::ui->tableView->setModel(modal);
+            //Counting the Column Width
+            for (int i=0;i<ui->tableView->horizontalHeader()->count();i++)
+                width=width+ui->tableView->columnWidth(i);
+            //Counting the Row Height
+            for (int i=0;i<ui->tableView->verticalHeader()->count();i++)
+                height=height+ui->tableView->rowHeight(i);
+            //Disable Resizing the horizontal and vertical headers by the user
+            ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+            ui->tableView->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+            setMinimumWidth(width+38);
+            setMaximumWidth(width+38);
+            setMinimumHeight(height+109);
+            setMaximumHeight(height+109);
             ui->table_title->setText("Teacher's Timetable : "+condition+" ");
             ui->table_title->setStyleSheet("QLabel {  font-size:16px; font-weight: bold; color : blue; }");
         break;
