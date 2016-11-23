@@ -28,5 +28,3 @@ public:
 };
 
 #endif // TT_DATABASE_H
-
-//end
