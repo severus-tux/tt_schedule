@@ -2,7 +2,7 @@
 
 schedule::schedule()
 {
-
+	//constructor
 }
 
 void schedule::schedule_hrd_math()
