@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "tt_database.h"
 #include "choose_view.h"
+#include "schedule.h"
 
 namespace Ui {
 class input;
@@ -57,6 +58,7 @@ private:
     QString input_file_name4,input_file_name5,input_file_name6,input_file_name7;
     tt_database *db_ip;
     choose_view *chview;
+    schedule *sch;
 };
 
 #endif // INPUT_H

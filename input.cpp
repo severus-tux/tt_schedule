@@ -171,9 +171,12 @@ void input::on_pushButton_ok_clicked()
                 db_ip->input_db("tt_csv/hrd.csv","hrd");
                 db_ip->input_db("tt_csv/maths.csv","maths");
 
-                chview = new choose_view(this);
-                chview->show();
+                sch = new schedule();
+                sch->initialize_master();
+                sch->schedule_hrd_math();
 
+                chview = new choose_view();
+                chview->show();
             }
             else
             {
