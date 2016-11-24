@@ -67,7 +67,7 @@ void tt_database::tt_create_new_db()
                   "end "
                   ") as day_num "
                   "from master m, subject s "
-                  "where m.sub_id=s.sub_id;) ");
+                  "where m.sub_id=s.sub_id;");
     query.exec();
     query.prepare("create view master_lab as "
                   "select l.day,l.sem,l.sec,l.lab_name,l.tid1,l.tid2,l.batch, "
