@@ -3,6 +3,7 @@
 
 #include "tt_database.h"
 #include <QSqlQuery>
+#include <QSqlDatabase>
 
 class schedule
 {

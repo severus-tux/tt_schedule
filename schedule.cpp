@@ -55,7 +55,7 @@ void schedule::initialize_master()
         tmp.chop(2);
         sem_sec.append(tmp);
     }
-
+    db_shdl->db.transaction();
     for(int day = 0 ; day < 6 ; day++) //days
     {
         for(int i = 0 ; i < sem_sec.length() ; i++) //for existing sem and sec
@@ -72,6 +72,6 @@ void schedule::initialize_master()
         }
 
     }
-
+    db_shdl->db.commit();
     db_shdl->connClose();
 }
