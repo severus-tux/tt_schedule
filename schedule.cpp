@@ -73,5 +73,8 @@ void schedule::initialize_master()
 
     }
     db_shdl->db.commit();
+    QSqlQuery delete_qry;
+    delete_qry.prepare("delete from master where day='SAT' and hour >= 5");
+    delete_qry.exec();
     db_shdl->connClose();
 }
