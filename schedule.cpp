@@ -21,7 +21,7 @@ void schedule::schedule_hrd_math()
     qry_hrd_math.exec();
 
     qry_hrd_math.prepare("update master  "
-                    "set sub_id = ( select sub_id from subject where sub_name='MATHS-3')) "
+                    "set sub_id = ( select sub_id from subject where sub_name='MATHS-3') "
                     "where exists ( "
                     "   select * from maths "
                     "   where maths.day=master.day and "

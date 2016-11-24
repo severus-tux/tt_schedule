@@ -82,7 +82,7 @@ void input::on_pushButton_download_subject_clicked()
         QMessageBox::critical(this,"Error","No Directory selected");
     else
     {
-        QString path = "cp tt_templates/subject_template.xlsx "+output_path;
+        QString path = "cp tt_templates/subject.xlsx "+output_path;
         bool ret = system(path.toStdString().c_str());
         if(ret)
             QMessageBox::critical(this,"Download Error","Permission Denied");
@@ -98,7 +98,7 @@ void input::on_pushButton_download_class_clicked()
         QMessageBox::critical(this,"Error","No Directory selected");
     else
     {
-        QString path = "cp tt_templates/class_template.xlsx "+output_path;
+        QString path = "cp tt_templates/class.xlsx "+output_path;
         bool ret = system(path.toStdString().c_str());
         if(ret)
             QMessageBox::critical(this,"Download Error","Permission Denied");
@@ -114,7 +114,7 @@ void input::on_pushButton_download_teacher_clicked()
         QMessageBox::critical(this,"Error","No Directory selected");
     else
     {
-        QString path = "cp tt_templates/teacher_template.xlsx "+output_path;
+        QString path = "cp tt_templates/teachers.xlsx "+output_path;
         bool ret = system(path.toStdString().c_str());
         if(ret)
             QMessageBox::critical(this,"Download Error","Permission Denied");
@@ -130,7 +130,7 @@ void input::on_pushButton_download_teacherinfo_clicked()
         QMessageBox::critical(this,"Error","No Directory selected");
     else
     {
-        QString path = "cp tt_templates/teacherinfo_template.xlsx "+output_path;
+        QString path = "cp tt_templates/teacher_info.xlsx "+output_path;
         bool ret = system(path.toStdString().c_str());
         if(ret)
             QMessageBox::critical(this,"Download Error","Permission Denied");
@@ -219,7 +219,7 @@ void input::on_pushButton_download_hrd_clicked()
         QMessageBox::critical(this,"Error","No Directory selected");
     else
     {
-        QString path = "cp tt_templates/hrd_template.xlsx "+output_path;
+        QString path = "cp tt_templates/hrd.xlsx "+output_path;
         bool ret = system(path.toStdString().c_str());
         if(ret)
             QMessageBox::critical(this,"Download Error","Permission Denied");
@@ -235,7 +235,7 @@ void input::on_pushButton_download_maths_clicked()
         QMessageBox::critical(this,"Error","No Directory selected");
     else
     {
-        QString path = "cp tt_templates/maths_template.xlsx "+output_path;
+        QString path = "cp tt_templates/maths.xlsx "+output_path;
         bool ret = system(path.toStdString().c_str());
         if(ret)
             QMessageBox::critical(this,"Download Error","Permission Denied");
@@ -260,7 +260,7 @@ void input::on_pushButton_download_semester_clicked()
         QMessageBox::critical(this,"Error","No Directory selected");
     else
     {
-        QString path = "cp tt_templates/maths_template.xlsx "+output_path;
+        QString path = "cp tt_templates/semester.xlsx "+output_path;
         bool ret = system(path.toStdString().c_str());
         if(ret)
             QMessageBox::critical(this,"Download Error","Permission Denied");

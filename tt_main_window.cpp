@@ -61,12 +61,8 @@ void tt_main_window::on_buttonBox_accepted()
             input_data->show();
             db_create = new tt_database();
             db_create ->tt_create_new_db();
-
-            //chooseview = new choose_view(this);
-            //chooseview->show();
         }
     }
-
     else
     {
         QMessageBox::critical(this,"No option selected","No options were selected!!.");
