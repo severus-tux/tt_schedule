@@ -115,22 +115,6 @@ void tt_database::tt_create_new_db()
     connClose();
 }
 
-void tt_database::tt_view_db(int view_type)
-{
-    switch (view_type)
-    {
-        case 1:
-                break;
-        case 2:
-                break;
-        case 3:
-                break;
-        case 4:
-                break;
-        default:
-                break;
-    }
-}
 
 void tt_database::connOpen()
 {

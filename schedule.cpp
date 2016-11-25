@@ -63,14 +63,12 @@ void schedule::initialize_master()
             for(int hour = 0 ; hour < 7 ; hour++) //hours
             {
                 QString insert_qry;
-                insert_qry = "INSERT INTO MASTER VALUES ('"+days.at(day)+"',"+sem_sec.at(i)+"',"+hours.at(hour)+",NULL)";
+                insert_qry = "INSERT INTO MASTER VALUES  ('"+days.at(day)+"',"+sem_sec.at(i)+"',"+hours.at(hour)+",NULL)";
                 QSqlQuery final_qry;
                 final_qry.exec(insert_qry);
                 //qDebug() << insert_qry;
             }
-
         }
-
     }
     db_shdl->db.commit();
     QSqlQuery delete_qry;

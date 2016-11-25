@@ -16,10 +16,6 @@ public:
     QString path;
     tt_database();
     void tt_create_new_db();
-    void tt_view_db(int);// master  => 1
-                         // lab     => 2
-                         // class   => 3
-                         // teacher => 4
     void connOpen();
     void connClose();
     void input_db(QString path,QString table);
