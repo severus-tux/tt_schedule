@@ -161,7 +161,7 @@ void input::on_pushButton_ok_clicked()
                  fileExists("tt_csv/hrd.csv") &&
                  fileExists("tt_csv/maths.csv") )
             {
-                system("for file in tt_csv/*; do sed '1d' $file >tmp ; mv tmp $file; done");
+                system("for file in tt_csv/*; do sed '1,2d' $file >tmp ; mv tmp $file; done");
                 db_ip = new tt_database();
                 db_ip->input_db("tt_csv/class.csv","class");
                 db_ip->input_db("tt_csv/subject.csv","subject");
