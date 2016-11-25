@@ -90,6 +90,28 @@ void tt_database::tt_create_new_db()
                   "m.sec=l.sec and "
                   "m.sub_id=l.sub_id;");
     query.exec();
+    query.prepare("CREATE VIEW complete as "
+                  "select m.day,m.sem,m.sec, "
+                  "COALESCE(m.sem, '') || '-' || COALESCE(m.sec, '') as class, "
+                  "m.hour,m.sub_id,s.sub_name,t.tid,ti.tname,ti.initials, "
+                  "( "
+                  "case "
+                  "     when day='MON' then 1 "
+                  "     when day='TUE' then 2 "
+                  "     when day='WED' then 3 "
+                  "     when day='THU' then 4 "
+                  "     when day='FRI' then 5 "
+                  "     when day='SAT' then 6 "
+                  "end "
+                  ") as day_num "
+                  "from master m, subject s, teachers t, teacher_info ti "
+                  "where "
+                  "m.sub_id=s.sub_id and "
+                  "m.sem=t.sem and "
+                  "m.sec=t.sec and "
+                  "m.sub_id=t.sub_id and "
+                  "t.tid=ti.tid");
+    query.exec();
     connClose();
 }
 
